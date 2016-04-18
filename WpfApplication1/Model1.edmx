@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="autos_dbModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="autos_dbModelStoreContainer">
+          <EntitySet Name="auto" EntityType="autos_dbModel.Store.auto" store:Type="Tables" Schema="autos_db" />
+          <EntitySet Name="client" EntityType="autos_dbModel.Store.client" store:Type="Tables" Schema="autos_db" />
+          <EntitySet Name="order" EntityType="autos_dbModel.Store.order" store:Type="Tables" Schema="autos_db" />
+          <AssociationSet Name="idauto" Association="autos_dbModel.Store.idauto">
+            <End Role="auto" EntitySet="auto" />
+            <End Role="order" EntitySet="order" />
+          </AssociationSet>
+          <AssociationSet Name="idclient" Association="autos_dbModel.Store.idclient">
+            <End Role="client" EntitySet="client" />
+            <End Role="order" EntitySet="order" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="auto">
+          <Key>
+            <PropertyRef Name="idauto" />
+          </Key>
+          <Property Name="idauto" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="mark" Type="varchar" MaxLength="45" />
+          <Property Name="model" Type="varchar" MaxLength="45" />
+          <Property Name="horsePower" Type="int" />
+          <Property Name="year" Type="int" />
+          <Property Name="transmission" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="client">
+          <Key>
+            <PropertyRef Name="idClient" />
+          </Key>
+          <Property Name="idClient" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="varchar" MaxLength="45" />
+          <Property Name="SecondName" Type="varchar" MaxLength="45" />
+          <Property Name="ThirdName" Type="varchar" MaxLength="45" />
+          <Property Name="Phone" Type="varchar" MaxLength="45" />
+          <Property Name="Birth" Type="datetime" />
+        </EntityType>
+        <EntityType Name="order">
+          <Key>
+            <PropertyRef Name="idorder" />
+          </Key>
+          <Property Name="idorder" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="workname" Type="varchar" MaxLength="150" />
+          <Property Name="beginTime" Type="datetime" />
+          <Property Name="endTime" Type="datetime" />
+          <Property Name="cost" Type="int" />
+          <Property Name="idclient" Type="int" />
+          <Property Name="idauto" Type="int" />
+        </EntityType>
+        <Association Name="idauto">
+          <End Role="auto" Type="autos_dbModel.Store.auto" Multiplicity="0..1" />
+          <End Role="order" Type="autos_dbModel.Store.order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="auto">
+              <PropertyRef Name="idauto" />
+            </Principal>
+            <Dependent Role="order">
+              <PropertyRef Name="idauto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idclient">
+          <End Role="client" Type="autos_dbModel.Store.client" Multiplicity="0..1" />
+          <End Role="order" Type="autos_dbModel.Store.order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="client">
+              <PropertyRef Name="idClient" />
+            </Principal>
+            <Dependent Role="order">
+              <PropertyRef Name="idclient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="autos_dbModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="autos_dbEntities1" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="auto" EntityType="autos_dbModel.auto" />
+          <EntitySet Name="client" EntityType="autos_dbModel.client" />
+          <EntitySet Name="order" EntityType="autos_dbModel.order" />
+          <AssociationSet Name="idauto" Association="autos_dbModel.idauto">
+            <End Role="auto" EntitySet="auto" />
+            <End Role="order" EntitySet="order" />
+          </AssociationSet>
+          <AssociationSet Name="idclient" Association="autos_dbModel.idclient">
+            <End Role="client" EntitySet="client" />
+            <End Role="order" EntitySet="order" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="auto">
+          <Key>
+            <PropertyRef Name="idauto" />
+          </Key>
+          <Property Name="idauto" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="mark" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="model" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="horsePower" Type="Int32" />
+          <Property Name="year" Type="Int32" />
+          <Property Name="transmission" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="order" Relationship="autos_dbModel.idauto" FromRole="auto" ToRole="order" />
+        </EntityType>
+        <EntityType Name="client">
+          <Key>
+            <PropertyRef Name="idClient" />
+          </Key>
+          <Property Name="idClient" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="SecondName" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="ThirdName" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Phone" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="Birth" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="order" Relationship="autos_dbModel.idclient" FromRole="client" ToRole="order" />
+        </EntityType>
+        <EntityType Name="order">
+          <Key>
+            <PropertyRef Name="idorder" />
+          </Key>
+          <Property Name="idorder" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="workname" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="beginTime" Type="DateTime" Precision="0" />
+          <Property Name="endTime" Type="DateTime" Precision="0" />
+          <Property Name="cost" Type="Int32" />
+          <Property Name="idclient" Type="Int32" />
+          <Property Name="idauto" Type="Int32" />
+          <NavigationProperty Name="auto" Relationship="autos_dbModel.idauto" FromRole="order" ToRole="auto" />
+          <NavigationProperty Name="client" Relationship="autos_dbModel.idclient" FromRole="order" ToRole="client" />
+        </EntityType>
+        <Association Name="idauto">
+          <End Role="auto" Type="autos_dbModel.auto" Multiplicity="0..1" />
+          <End Role="order" Type="autos_dbModel.order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="auto">
+              <PropertyRef Name="idauto" />
+            </Principal>
+            <Dependent Role="order">
+              <PropertyRef Name="idauto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idclient">
+          <End Role="client" Type="autos_dbModel.client" Multiplicity="0..1" />
+          <End Role="order" Type="autos_dbModel.order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="client">
+              <PropertyRef Name="idClient" />
+            </Principal>
+            <Dependent Role="order">
+              <PropertyRef Name="idclient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="autos_dbModelStoreContainer" CdmEntityContainer="autos_dbEntities1">
+          <EntitySetMapping Name="auto">
+            <EntityTypeMapping TypeName="autos_dbModel.auto">
+              <MappingFragment StoreEntitySet="auto">
+                <ScalarProperty Name="idauto" ColumnName="idauto" />
+                <ScalarProperty Name="mark" ColumnName="mark" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="horsePower" ColumnName="horsePower" />
+                <ScalarProperty Name="year" ColumnName="year" />
+                <ScalarProperty Name="transmission" ColumnName="transmission" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="client">
+            <EntityTypeMapping TypeName="autos_dbModel.client">
+              <MappingFragment StoreEntitySet="client">
+                <ScalarProperty Name="idClient" ColumnName="idClient" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="SecondName" ColumnName="SecondName" />
+                <ScalarProperty Name="ThirdName" ColumnName="ThirdName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Birth" ColumnName="Birth" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="order">
+            <EntityTypeMapping TypeName="autos_dbModel.order">
+              <MappingFragment StoreEntitySet="order">
+                <ScalarProperty Name="idorder" ColumnName="idorder" />
+                <ScalarProperty Name="workname" ColumnName="workname" />
+                <ScalarProperty Name="beginTime" ColumnName="beginTime" />
+                <ScalarProperty Name="endTime" ColumnName="endTime" />
+                <ScalarProperty Name="cost" ColumnName="cost" />
+                <ScalarProperty Name="idclient" ColumnName="idclient" />
+                <ScalarProperty Name="idauto" ColumnName="idauto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="autos_dbModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="autos_dbEntities1" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="auto" EntityType="autos_dbModel.auto" />
+    <EntitySet Name="client" EntityType="autos_dbModel.client" />
+    <EntitySet Name="order" EntityType="autos_dbModel.order" />
+    <AssociationSet Name="idauto" Association="autos_dbModel.idauto">
+      <End Role="auto" EntitySet="auto" />
+      <End Role="order" EntitySet="order" />
+    </AssociationSet>
+    <AssociationSet Name="idclient" Association="autos_dbModel.idclient">
+      <End Role="client" EntitySet="client" />
+      <End Role="order" EntitySet="order" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="auto">
+    <Key>
+      <PropertyRef Name="idauto" />
+    </Key>
+    <Property Name="idauto" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="mark" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="model" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="horsePower" Type="Int32" />
+    <Property Name="year" Type="Int32" />
+    <Property Name="transmission" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="order" Relationship="autos_dbModel.idauto" FromRole="auto" ToRole="order" />
+  </EntityType>
+  <EntityType Name="client">
+    <Key>
+      <PropertyRef Name="idClient" />
+    </Key>
+    <Property Name="idClient" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="SecondName" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="ThirdName" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="Birth" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="order" Relationship="autos_dbModel.idclient" FromRole="client" ToRole="order" />
+  </EntityType>
+  <EntityType Name="order">
+    <Key>
+      <PropertyRef Name="idorder" />
+    </Key>
+    <Property Name="idorder" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="workname" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="beginTime" Type="DateTime" Precision="0" />
+    <Property Name="endTime" Type="DateTime" Precision="0" />
+    <Property Name="cost" Type="Int32" />
+    <Property Name="idclient" Type="Int32" />
+    <Property Name="idauto" Type="Int32" />
+    <NavigationProperty Name="auto" Relationship="autos_dbModel.idauto" FromRole="order" ToRole="auto" />
+    <NavigationProperty Name="client" Relationship="autos_dbModel.idclient" FromRole="order" ToRole="client" />
+  </EntityType>
+  <Association Name="idauto">
+    <End Role="auto" Type="autos_dbModel.auto" Multiplicity="0..1" />
+    <End Role="order" Type="autos_dbModel.order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auto">
+        <PropertyRef Name="idauto" />
+      </Principal>
+      <Dependent Role="order">
+        <PropertyRef Name="idauto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="idclient">
+    <End Role="client" Type="autos_dbModel.client" Multiplicity="0..1" />
+    <End Role="order" Type="autos_dbModel.order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="client">
+        <PropertyRef Name="idClient" />
+      </Principal>
+      <Dependent Role="order">
+        <PropertyRef Name="idclient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

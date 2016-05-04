@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="autos_dbModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="autos_dbModelStoreContainer">
+    <EntitySet Name="auto" EntityType="autos_dbModel.Store.auto" store:Type="Tables" Schema="autos_db" />
+    <EntitySet Name="client" EntityType="autos_dbModel.Store.client" store:Type="Tables" Schema="autos_db" />
+    <EntitySet Name="order" EntityType="autos_dbModel.Store.order" store:Type="Tables" Schema="autos_db" />
+    <AssociationSet Name="idauto" Association="autos_dbModel.Store.idauto">
+      <End Role="auto" EntitySet="auto" />
+      <End Role="order" EntitySet="order" />
+    </AssociationSet>
+    <AssociationSet Name="idclient" Association="autos_dbModel.Store.idclient">
+      <End Role="client" EntitySet="client" />
+      <End Role="order" EntitySet="order" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="auto">
+    <Key>
+      <PropertyRef Name="idauto" />
+    </Key>
+    <Property Name="idauto" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="mark" Type="varchar" MaxLength="45" />
+    <Property Name="model" Type="varchar" MaxLength="45" />
+    <Property Name="horsePower" Type="int" />
+    <Property Name="year" Type="int" />
+    <Property Name="transmission" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="client">
+    <Key>
+      <PropertyRef Name="idClient" />
+    </Key>
+    <Property Name="idClient" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="varchar" MaxLength="45" />
+    <Property Name="SecondName" Type="varchar" MaxLength="45" />
+    <Property Name="ThirdName" Type="varchar" MaxLength="45" />
+    <Property Name="Phone" Type="varchar" MaxLength="45" />
+    <Property Name="Birth" Type="datetime" />
+  </EntityType>
+  <EntityType Name="order">
+    <Key>
+      <PropertyRef Name="idorder" />
+    </Key>
+    <Property Name="idorder" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="workname" Type="varchar" MaxLength="150" />
+    <Property Name="beginTime" Type="datetime" />
+    <Property Name="endTime" Type="datetime" />
+    <Property Name="cost" Type="int" />
+    <Property Name="idclient" Type="int" />
+    <Property Name="idauto" Type="int" />
+  </EntityType>
+  <Association Name="idauto">
+    <End Role="auto" Type="autos_dbModel.Store.auto" Multiplicity="0..1" />
+    <End Role="order" Type="autos_dbModel.Store.order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auto">
+        <PropertyRef Name="idauto" />
+      </Principal>
+      <Dependent Role="order">
+        <PropertyRef Name="idauto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="idclient">
+    <End Role="client" Type="autos_dbModel.Store.client" Multiplicity="0..1" />
+    <End Role="order" Type="autos_dbModel.Store.order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="client">
+        <PropertyRef Name="idClient" />
+      </Principal>
+      <Dependent Role="order">
+        <PropertyRef Name="idclient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

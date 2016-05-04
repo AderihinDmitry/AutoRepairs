@@ -11,7 +11,7 @@ namespace WpfApplication1
 {
     using System;
     using System.Collections.Generic;
-    
+    [Serializable]
     public partial class client
     {
         public client()

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+<clients>
+	<client>
+	<idclient>2</idclient>
+	<firstName> Loktionov </firstName> 
+	<secondName>Alexandr</secondName>
+	<thirdName>Gennadievich</thirdName>
+	<birth> 1973-11-01 </birth>
+	<phone>8915667894 </phone>
+	</client>
+
+	<client>
+	<idclient>3</idclient>
+	<firstName> Ivanov </firstName> 
+	<secondName>Victor</secondName>
+	<thirdName>Mihailovich</thirdName>
+	<birth> 1984-01-11 </birth>
+	<phone>89304885746</phone>
+	</client>
+
+	<client>
+	<idclient>4</idclient>
+	<firstName> Pavlov </firstName> 
+	<secondName>Semen</secondName>
+	<thirdName>Victorovich</thirdName>
+	<birth> 1988-08-24 </birth>
+	<phone>89304885746</phone>
+	</client>
+
+	<client>
+	<idclient>5</idclient>
+	<firstName> Fryazina </firstName> 
+	<secondName>Anna</secondName>
+	<thirdName>Valerievna</thirdName>
+	<birth> 1993-02-04 </birth>
+	<phone>89304885746</phone>
+	</client>
+
+</clients>
+<autos>
+	<auto>
+		<idauto> 1 </idauto> 
+		<mark>Chevrolet</mark>
+		<model> Aveo </model>
+		<horsepower> 97 </horsepower>
+		<year> 2011 </year>
+		<transmission> manual </transmission>
+		<idclient>2</idclient>
+	</auto>
+	<auto>
+		<idauto> 2 </idauto> 
+		<mark>Ford</mark>
+		<model> Escort </model>
+		<horsepower> 75 </horsepower>
+		<year> 1993 </year>
+		<transmission> manual </transmission>
+		<idclient>3</idclient>
+	</auto>
+	<auto>
+		<idauto> 3 </idauto> 
+		<mark>Mazda</mark>
+		<model> 6 </model>
+		<horsepower> 146 </horsepower>
+		<year> 2009 </year>
+		<transmission> automatic </transmission>
+		<idclient>4</idclient>
+	</auto>
+	<auto>
+		<idauto> 4 </idauto> 
+		<mark>Toyota</mark>
+		<model> Camry </model>
+		<horsepower> 130 </horsepower>
+		<year> 2014 </year>
+		<transmission> automatic </transmission>
+		<idclient>5</idclient>
+	</auto>
+</autos>
+<orders>
+	
+	<order> 
+		<idorder>1</idorder>
+		<workname>Engine Repair </workname>
+		<beginTime> 2016-01-20 11:00 </beginTime>
+		<endTime> 2016-01-31 16:30 </endTime>
+		<cost> 32000 </cost>
+		<idauto> 1 </idauto>
+	</order>
+	<order> 
+		<idorder>2</idorder>
+		<workname>Oil changing </workname>
+		<beginTime> 2016-02-10 16:00 </beginTime>
+		<endTime> 2016-02-10 16:30 </endTime>
+		<cost> 2000 </cost>
+		<idauto> 3 </idauto>
+	</order>
+	<order> 
+		<idorder>3</idorder>
+		<workname>Air conditioning repair</workname>
+		<beginTime> 2016-02-12 13:00 </beginTime>
+		<endTime> 2016-02-13 11:00 </endTime>
+		<cost> 5000 </cost>
+		<idauto> 4 </idauto>
+	</order>
+	<order> 
+		<idorder>4</idorder>
+		<workname>Replace brake pads</workname>
+		<beginTime> 2016-02-14 10:00 </beginTime>
+		<endTime> 2016-02-14 12:00 </endTime>
+		<cost> 2500 </cost>
+		<idauto> 2 </idauto>
+	</order>
+
+</orders>
+</root>

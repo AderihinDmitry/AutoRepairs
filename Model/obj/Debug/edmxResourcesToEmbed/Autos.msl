@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище autos_dbModelContainer" CdmEntityContainer="autos_dbEntities1">
+    <EntitySetMapping Name="auto">
+      <EntityTypeMapping TypeName="autos_dbModel.auto">
+        <MappingFragment StoreEntitySet="auto">
+          <ScalarProperty Name="idauto" ColumnName="idauto" />
+          <ScalarProperty Name="mark" ColumnName="mark" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="horsePower" ColumnName="horsePower" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="transmission" ColumnName="transmission" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="client">
+      <EntityTypeMapping TypeName="autos_dbModel.client">
+        <MappingFragment StoreEntitySet="client">
+          <ScalarProperty Name="idClient" ColumnName="idClient" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="SecondName" ColumnName="SecondName" />
+          <ScalarProperty Name="ThirdName" ColumnName="ThirdName" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Birth" ColumnName="Birth" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="order">
+      <EntityTypeMapping TypeName="autos_dbModel.order">
+        <MappingFragment StoreEntitySet="order">
+          <ScalarProperty Name="idorder" ColumnName="idorder" />
+          <ScalarProperty Name="workname" ColumnName="workname" />
+          <ScalarProperty Name="beginTime" ColumnName="beginTime" />
+          <ScalarProperty Name="endTime" ColumnName="endTime" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="idclient" ColumnName="idclient" />
+          <ScalarProperty Name="idauto" ColumnName="idauto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="autos_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="auto">
+    <Key>
+      <PropertyRef Name="idauto" />
+    </Key>
+    <Property Name="idauto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mark" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="model" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="horsePower" Type="Int32" />
+    <Property Name="year" Type="Int32" />
+    <Property Name="transmission" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="order" Relationship="Self.idauto" FromRole="auto" ToRole="order" />
+  </EntityType>
+  <EntityType Name="client">
+    <Key>
+      <PropertyRef Name="idClient" />
+    </Key>
+    <Property Name="idClient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="SecondName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="ThirdName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Birth" Type="DateTime" />
+    <NavigationProperty Name="order" Relationship="Self.idclient" FromRole="client" ToRole="order" />
+  </EntityType>
+  <EntityType Name="order">
+    <Key>
+      <PropertyRef Name="idorder" />
+    </Key>
+    <Property Name="idorder" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="workname" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="beginTime" Type="DateTime" />
+    <Property Name="endTime" Type="DateTime" />
+    <Property Name="cost" Type="Int32" />
+    <Property Name="idclient" Type="Int32" />
+    <Property Name="idauto" Type="Int32" />
+    <NavigationProperty Name="auto" Relationship="Self.idauto" FromRole="order" ToRole="auto" />
+    <NavigationProperty Name="client" Relationship="Self.idclient" FromRole="order" ToRole="client" />
+  </EntityType>
+  <Association Name="idauto">
+    <End Role="auto" Type="Self.auto" Multiplicity="0..1" />
+    <End Role="order" Type="Self.order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auto">
+        <PropertyRef Name="idauto" />
+      </Principal>
+      <Dependent Role="order">
+        <PropertyRef Name="idauto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="idclient">
+    <End Role="client" Type="Self.client" Multiplicity="0..1" />
+    <End Role="order" Type="Self.order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="client">
+        <PropertyRef Name="idClient" />
+      </Principal>
+      <Dependent Role="order">
+        <PropertyRef Name="idclient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="autos_dbEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="auto" EntityType="Self.auto" />
+    <EntitySet Name="client" EntityType="Self.client" />
+    <EntitySet Name="order" EntityType="Self.order" />
+    <AssociationSet Name="idauto" Association="Self.idauto">
+      <End Role="auto" EntitySet="auto" />
+      <End Role="order" EntitySet="order" />
+    </AssociationSet>
+    <AssociationSet Name="idclient" Association="Self.idclient">
+      <End Role="client" EntitySet="client" />
+      <End Role="order" EntitySet="order" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

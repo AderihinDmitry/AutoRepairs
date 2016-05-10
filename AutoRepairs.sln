@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoRepairs", "WpfApplication1\AutoRepairs.csproj", "{5D54C839-E615-41AE-8D47-84FA8E345A5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{D5FE2C86-C44A-4F39-A562-0B8C4DD6D116}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +17,10 @@ Global
 		{5D54C839-E615-41AE-8D47-84FA8E345A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D54C839-E615-41AE-8D47-84FA8E345A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D54C839-E615-41AE-8D47-84FA8E345A5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5FE2C86-C44A-4F39-A562-0B8C4DD6D116}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5FE2C86-C44A-4F39-A562-0B8C4DD6D116}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5FE2C86-C44A-4F39-A562-0B8C4DD6D116}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5FE2C86-C44A-4F39-A562-0B8C4DD6D116}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

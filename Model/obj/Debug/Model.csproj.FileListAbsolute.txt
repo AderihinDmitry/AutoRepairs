@@ -1,0 +1,17 @@
+C:\Users\Zver\Desktop\AutoRepairs-master\Model\bin\Debug\Model.dll.config
+C:\Users\Zver\Desktop\AutoRepairs-master\Model\bin\Debug\Model.dll
+C:\Users\Zver\Desktop\AutoRepairs-master\Model\bin\Debug\Model.pdb
+C:\Users\Zver\Desktop\AutoRepairs-master\Model\bin\Debug\EntityFramework.dll
+C:\Users\Zver\Desktop\AutoRepairs-master\Model\bin\Debug\EntityFramework.xml
+C:\Users\Zver\Desktop\AutoRepairs-master\Model\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\Zver\Desktop\AutoRepairs-master\Model\obj\Debug\Model.dll
+C:\Users\Zver\Desktop\AutoRepairs-master\Model\obj\Debug\Model.pdb
+C:\Users\Zver\Desktop\AutoRepairs\Model\bin\Debug\Model.dll.config
+C:\Users\Zver\Desktop\AutoRepairs\Model\bin\Debug\Model.dll
+C:\Users\Zver\Desktop\AutoRepairs\Model\bin\Debug\Model.pdb
+C:\Users\Zver\Desktop\AutoRepairs\Model\bin\Debug\EntityFramework.dll
+C:\Users\Zver\Desktop\AutoRepairs\Model\bin\Debug\EntityFramework.xml
+C:\Users\Zver\Desktop\AutoRepairs\Model\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\Zver\Desktop\AutoRepairs\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\Zver\Desktop\AutoRepairs\Model\obj\Debug\Model.dll
+C:\Users\Zver\Desktop\AutoRepairs\Model\obj\Debug\Model.pdb

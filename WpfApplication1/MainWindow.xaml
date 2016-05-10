@@ -3,10 +3,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="AutoRepairs" Height="460" Width="620">
     <Grid>
-        <Button x:Name="Button_Load" Content="Load" HorizontalAlignment="Left" VerticalAlignment="Top" Width="82" Margin="95,10,0,0" Height="21" Click="Button_Click_1"/>
-        <DataGrid x:Name="DataGridOrder" HorizontalAlignment="Left" Margin="95,43,0,0" VerticalAlignment="Top" Height="167" Width="434" SelectionChanged="DataGridOrder_SelectionChanged" AutoGenerateColumns="False">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Button Grid.Row ="0" x:Name="Button_Load" Content="Load" HorizontalAlignment="Left" VerticalAlignment="Top" Width="82" Margin="10,9,0,0" Height="21" Click="Button_Click_1"/>
+        <DataGrid x:Name="DataGridOrder" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Stretch" SelectionChanged="DataGridOrder_SelectionChanged" AutoGenerateColumns="False" Grid.Row="1" Grid.Column="0">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id Order" Binding="{Binding IdOrder}"> </DataGridTextColumn>
+                <DataGridTextColumn Header="Id Order" Binding="{Binding IdOrder}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Mark" Binding="{Binding Mark}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Model" Binding="{Binding Model}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Year" Binding="{Binding Year}"></DataGridTextColumn>
@@ -33,8 +40,8 @@
                 </DataTemplate>
             </DataGrid.RowDetailsTemplate>
         </DataGrid>
-        <Button x:Name="Button_Load_Xml" Content="Load Xml" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="199,10,0,0" Click="Button_Load_Xml_Click"/>
-        <Button x:Name="Button_Load_Bin" Content="Load Binary" HorizontalAlignment="Left" Margin="290,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Load_Bin_Click"/>
+        <Button Grid.Row ="0" x:Name="Button_Load_Xml" Content="Load Xml" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="107,10,0,0" Click="Button_Load_Xml_Click" Height="20"/>
+        <Button Grid.Row ="0" x:Name="Button_Load_Bin" Content="Load Binary" HorizontalAlignment="Left" Margin="204,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Load_Bin_Click" Height="20"/>
 
     </Grid>
 </Window>
